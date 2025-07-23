@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Login extends BaseController
+class Home extends BaseController
 {
     public function index(): string
     {
-        return $this->viewMod('login','Anmeldung');
+        return $this->viewMod('home','Startseite');
     }
 }

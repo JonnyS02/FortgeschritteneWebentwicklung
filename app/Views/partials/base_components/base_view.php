@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de"> <!--data-bs-theme="dark"!-->
+<html lang="de" > <!--data-bs-theme="dark"!-->
 <?php include('head.php'); ?>
 <body>
 <?php include('navbar.php'); ?>
