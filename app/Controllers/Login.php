@@ -6,6 +6,6 @@ class Login extends BaseController
 {
     public function index(): string
     {
-        return $this->viewMod('login','Anmeldung');
+        return $this->viewMod('login');
     }
 }

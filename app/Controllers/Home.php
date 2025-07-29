@@ -6,6 +6,6 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return $this->viewMod('home','Startseite');
+        return $this->viewMod('home');
     }
 }

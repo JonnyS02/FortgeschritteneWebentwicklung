@@ -56,10 +56,9 @@ abstract class BaseController extends Controller
         // E.g.: $this->session = service('session');
     }
 
-    public function viewMod($view,$chosen_menu_item = null): string
+    public function viewMod($view, $data = null): string
     {
-        $data['view'] = $view . '.php';
-        $data['chosen_menu_item'] = $chosen_menu_item;
+        $data['view'] = $view;
         return view('partials/base_components/base_view', $data);
     }
 }

@@ -4,7 +4,7 @@
 <body>
 <?php include('navbar.php'); ?>
 <div class="container">
-    <?php include(__DIR__.'/../../'.$view);
+    <?php include(__DIR__.'/../../'.$view.'.php');
     include('footer.php'); ?>
 </div>
 </body>

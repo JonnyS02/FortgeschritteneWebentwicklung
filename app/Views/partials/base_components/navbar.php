@@ -10,11 +10,11 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto ">
                 <li class="nav-item">
-                    <a class="active <?= $chosen_menu_item == 'Anmeldung' ? 'text-decoration-underline' : '' ?> nav-link"
+                    <a class="active <?= $view == 'login' ? 'text-decoration-underline' : '' ?> nav-link"
                        aria-current="page" href="<?= base_url(index_page()) . "/login" ?>">Anmeldung</a>
                 </li>
                 <li class="nav-item">
-                    <a class="active <?= $chosen_menu_item == 'Startseite' ? 'text-decoration-underline' : '' ?> nav-link"
+                    <a class="active <?= $view == 'home' ? 'text-decoration-underline' : '' ?> nav-link"
                        aria-current="page" href="<?= base_url(index_page()) . "/home" ?>">Startseite</a>
                 </li>
             </ul>
