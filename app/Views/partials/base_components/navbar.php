@@ -11,8 +11,10 @@
             <?php if ($view != 'login') { ?>
                 <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
-                        <a class="active <?= $view == 'home' ? 'text-decoration-underline' : '' ?> nav-link"
-                           aria-current="page" href="<?= base_url(index_page()) . "/home" ?>">Startseite</a>
+                        <a class="active <?= $view == 'home' ? 'text-decoration-underline' : '' ?> nav-link" aria-current="page" href="<?= base_url(index_page()) . "/home" ?>">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="active <?= $view == 'map' ? 'text-decoration-underline' : '' ?> nav-link" aria-current="page" href="<?= base_url(index_page()) . "/map" ?>">Karte</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">

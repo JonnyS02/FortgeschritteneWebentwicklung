@@ -9,6 +9,9 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
     <link href="<?= base_url('kopf.png') ?>" type="image/x-icon" rel="icon">
     <link href="<?= base_url('/style.css') ?>" rel="stylesheet">
     <script src="<?= base_url('jquery-3.7.1.min.js') ?>"></script>
