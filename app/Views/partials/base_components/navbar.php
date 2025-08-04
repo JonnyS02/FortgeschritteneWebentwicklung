@@ -8,15 +8,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
-                        <a class="active <?= $view == 'home' ? 'text-decoration-underline' : '' ?> nav-link" aria-current="page" href="<?= base_url(index_page()) . "/home" ?>">Startseite</a>
+                        <a class="<?= $view == 'home' ? 'active' : '' ?> nav-link" aria-current="page" href="<?= base_url(index_page()) . "/home" ?>">Startseite</a>
                     </li>
                     <li class="nav-item">
-                        <a class="active <?= $view == 'map' ? 'text-decoration-underline' : '' ?> nav-link" aria-current="page" href="<?= base_url(index_page()) . "/map" ?>">Karte</a>
+                        <a class="<?= $view == 'map' ? 'active' : '' ?> nav-link" aria-current="page" href="<?= base_url(index_page()) . "/map" ?>">Karte</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown-center">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Konto</a>
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Konto</a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
                                 <a class="dropdown-item interactive-navbar" href="<?= base_url(index_page()) . "/profile" ?>"><i class="fa-regular fa-circle-user" style="font-size: unset"></i> Max Mustermann</a>
