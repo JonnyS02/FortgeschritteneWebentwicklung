@@ -30,7 +30,7 @@
                         </ul>
                     </li>
                 </ul>
-            <?php } ?>
-        </div>
+            </div>
+        <?php } ?>
     </div>
 </nav>
