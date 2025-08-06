@@ -2,6 +2,7 @@
     Willkommen auf der Startseite!
 </h2>
 <table id="mainTable"
+       data-locale="de-DE"
        data-toggle="table"
        data-search="true"
        data-filter-control="true"
