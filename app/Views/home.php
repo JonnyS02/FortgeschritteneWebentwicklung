@@ -2,8 +2,9 @@
     Willkommen auf der Startseite!
 </h2>
 <table id="mainTable"
-       id="mainTable"
        data-toggle="table"
+       data-search="true"
+       data-filter-control="true"
        data-show-columns="true"
        data-show-refresh="true"
        data-show-columns-toggle-all="true"
@@ -13,7 +14,9 @@
        data-buttons="buttons"
        data-pagination="true"
        data-page-size="5"
-       data-url="<?= base_url(index_page()) . "/getPersonenAJAX" ?>">
+       data-url="<?= base_url(index_page()) . '/getPersonenAJAX' ?>"
+       data-show-export="true"
+       data-export-types='["csv","excel","pdf"]'>
     <thead>
     <tr>
         <th data-field="id" data-sortable="true">#</th>
