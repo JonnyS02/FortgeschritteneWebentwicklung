@@ -60,13 +60,14 @@
         function apply(mode) {
             $html.attr('data-bs-theme', mode);
             localStorage.bsTheme = mode;
+            $toggle.prop('checked', mode === 'dark');
         }
 
-        // Initialisieren
         apply(localStorage.bsTheme || 'light');
 
         $toggle.on('click', () => {
             apply($html.attr('data-bs-theme') === 'dark' ? 'light' : 'dark');
         });
     });
+
 </script>
