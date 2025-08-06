@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Models\Test;
+
 class Home extends BaseController
 {
     public function index(): string
     {
-        return $this->viewMod('home');
+        $data['test'] = (new Test())->getProfile();
+        return $this->viewMod('home',$data);
     }
 }
