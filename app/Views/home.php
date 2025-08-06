@@ -2,14 +2,14 @@
     Willkommen auf der Startseite!
 </h2>
 <table id="mainTable"
-       class="table table-striped"
        data-toggle="table"
-       data-search="true"
-       data-pagination="true"
-       data-page-size="5"
-       data-show-refresh="true"
        data-show-columns="true"
-       data-toolbar="#toolbar"
+       data-show-refresh="true"
+       data-show-columns-toggle-all="true"
+       data-show-pagination-switch="true"
+       data-show-toggle="true"
+       data-show-fullscreen="true"
+       data-buttons="buttons"
        data-url="<?= base_url(index_page()) . "/getPersonenAJAX" ?>">
     <thead>
     <tr>
