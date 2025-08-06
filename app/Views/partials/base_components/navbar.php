@@ -10,7 +10,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
-                        <a class="<?= $view == 'home' ? 'active' : '' ?> nav-link" aria-current="page"
+                        <a class="<?= $view == 'startseite' ? 'active' : '' ?> nav-link" aria-current="page"
                            href="<?= base_url(index_page()) . "/startseite" ?>">Startseite</a>
                     </li>
                     <li class="nav-item">
@@ -18,7 +18,7 @@
                            href="<?= base_url(index_page()) . "/personen" ?>">Personen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="<?= $view == 'map' ? 'active' : '' ?> nav-link" aria-current="page"
+                        <a class="<?= $view == 'karte' ? 'active' : '' ?> nav-link" aria-current="page"
                            href="<?= base_url(index_page()) . "/karte" ?>">Karte</a>
                     </li>
                 </ul>

@@ -1,3 +1,6 @@
+<h2 class="text-center fw-light mb-4">
+    AJAX-geladene Personentabelle
+</h2>
 <table id="mainTable"
        data-locale="de-DE"
        data-toggle="table"

@@ -1,5 +1,5 @@
 <h2 class="text-center fw-light mb-4">
-    Einsatzkarte
+    Karte von Trier
 </h2>
 <div id="map" style="height: 600px" class="rounded shadow"></div>
 
