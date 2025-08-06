@@ -1,9 +1,14 @@
 <h2 class="text-center fw-light">
     Willkommen auf der Startseite!
 </h2>
-<ul>
-    <?php foreach ($test as $item): ?>
-        <li><?= $item['name'] ?></li>
-    <?php endforeach; ?>
-</ul>
-<?php var_dump($test); ?>
+
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        Personendaten als Liste
+    </div>
+    <ul class="list-group list-group-flush">
+        <?php foreach ($test as $item): ?>
+            <li class="list-group-item"><?= $item['name'] ?></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

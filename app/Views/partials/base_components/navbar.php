@@ -38,10 +38,12 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li class="dropdown-item d-flex align-items-center gap-2" id="themeToggle">
-                                <i id="sunIcon"  class="fa-solid fa-sun"></i>
-                                <i id="moonIcon" class="fa-solid fa-moon d-none"></i>
-                                <span>Dark Mode</span>
+                            <li class="dropdown-item px-3">
+                                <div class="form-check form-switch d-flex align-items-center">
+                                    <input class="form-check-input me-2" type="checkbox" id="themeToggle">
+                                    <label class="form-check-label d-flex align-items-center gap-1" for="themeToggle">Dark Mode
+                                    </label>
+                                </div>
                             </li>
                         </ul>
                     </li>
@@ -53,21 +55,16 @@
 <script>
     $(function () {
         const $toggle = $('#themeToggle'),
-            $sun    = $('#sunIcon'),
-            $moon   = $('#moonIcon'),
             $html   = $('html');
 
         function apply(mode) {
             $html.attr('data-bs-theme', mode);
-            $sun.toggleClass('d-none', mode === 'dark');
-            $moon.toggleClass('d-none', mode === 'light');
             localStorage.bsTheme = mode;
         }
 
         // Initialisieren
         apply(localStorage.bsTheme || 'light');
 
-        // Klick -> Theme wechseln
         $toggle.on('click', () => {
             apply($html.attr('data-bs-theme') === 'dark' ? 'light' : 'dark');
         });
