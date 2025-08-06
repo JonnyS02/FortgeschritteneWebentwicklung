@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-class Login extends BaseController
+class Karte extends BaseController
 {
     public function index(): string
     {
-        return $this->viewMod('login');
+        return $this->viewMod('karte');
     }
 }

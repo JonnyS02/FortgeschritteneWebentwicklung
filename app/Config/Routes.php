@@ -5,10 +5,13 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Login::index');
-$routes->get('/login', 'Login::index');
+$routes->match(['get', 'post'], '/', 'Anmeldung::index');
+$routes->match(['get', 'post'], 'anmeldung', 'Anmeldung::index');
 
-$routes->match(['get', 'post'], 'home', 'Home::index');
-$routes->match(['get', 'post'], 'map', 'Map::index');
+$routes->match(['get', 'post'], 'startseite', 'Startseite::index');
 
-$routes->match(['get', 'post'], 'getPersonenAJAX', 'Home::getPersonenAJAX');
+$routes->match(['get', 'post'], 'personen', 'Personen::index');
+$routes->match(['get', 'post'], 'getPersonenAJAX', 'Personen::getPersonenAJAX');
+
+$routes->match(['get', 'post'], 'karte', 'Karte::index');
+

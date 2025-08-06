@@ -13,10 +13,4 @@ class PersonenModel extends Model
         $result = $query->get();
         return $result->getResultArray();
     }
-
-    public function getPersonenAJAX($person_id = null): string
-    {
-        $personen = $this->getPersonen($person_id);
-        return json_encode($personen);
-    }
 }

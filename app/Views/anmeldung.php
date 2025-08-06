@@ -3,7 +3,7 @@
         <h1 class="display-6">Anmeldung</h1>
     </div>
     <div class="card-body">
-        <form action="<?= base_url(index_page()).'/home'?>" method="post">
+        <form action="<?= base_url(index_page()) . '/startseite' ?>" method="post">
             <div class="form-group mb-3">
                 <label for="email" class="col-form-label">E-Mail:</label>
                 <input type="email" name="email" id="email" value="" class="form-control " placeholder="Benutzername"

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-body-tertiary mb-4 shadow">
     <div class="container-fluid align-content-center">
-        <a class="navbar-brand mb-0 h1 text-primary" href="<?= base_url(index_page()) . "/home" ?>">F-WE</a>
-        <?php if ($view != 'login') { ?>
+        <a class="navbar-brand mb-0 h1 text-primary" href="<?= base_url(index_page()) . "/startseite" ?>">F-WE</a>
+        <?php if ($view != 'anmeldung') { ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -11,11 +11,15 @@
                 <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
                         <a class="<?= $view == 'home' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/home" ?>">Startseite</a>
+                           href="<?= base_url(index_page()) . "/startseite" ?>">Startseite</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="<?= $view == 'personen' ? 'active' : '' ?> nav-link" aria-current="page"
+                           href="<?= base_url(index_page()) . "/personen" ?>">Personen</a>
                     </li>
                     <li class="nav-item">
                         <a class="<?= $view == 'map' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/map" ?>">Karte</a>
+                           href="<?= base_url(index_page()) . "/karte" ?>">Karte</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -25,7 +29,7 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
                                 <a class="dropdown-item interactive-navbar"
-                                   href="<?= base_url(index_page()) . "/profile" ?>"><i
+                                   href="<?= base_url(index_page()) . "/konto" ?>"><i
                                             class="fa-regular fa-circle-user"></i> Max Mustermann</a>
                             </li>
                             <li>
@@ -41,7 +45,8 @@
                             <li class="dropdown-item px-3">
                                 <div class="form-check form-switch d-flex align-items-center">
                                     <input class="form-check-input me-2" type="checkbox" id="themeToggle">
-                                    <label class="form-check-label d-flex align-items-center gap-1" for="themeToggle">Dark Mode
+                                    <label class="form-check-label d-flex align-items-center gap-1" for="themeToggle">Dark
+                                        Mode
                                     </label>
                                 </div>
                             </li>
@@ -55,7 +60,7 @@
 <script>
     $(function () {
         const $toggle = $('#themeToggle'),
-            $html   = $('html');
+            $html = $('html');
 
         function apply(mode) {
             $html.attr('data-bs-theme', mode);
@@ -69,5 +74,4 @@
             apply($html.attr('data-bs-theme') === 'dark' ? 'light' : 'dark');
         });
     });
-
 </script>
