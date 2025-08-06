@@ -9,9 +9,6 @@
     <!-- Bootstrap Table CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.2/dist/bootstrap-table.min.css">
 
-    <!-- Filter-Control CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.24.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.css">
-
     <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
@@ -39,7 +36,6 @@
 
     <!-- Bootstrap Table Extensions -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.24.2/dist/extensions/export/bootstrap-table-export.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.24.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
     <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
