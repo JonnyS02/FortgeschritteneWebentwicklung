@@ -4,14 +4,14 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Test extends Model
+class PersonenModel extends Model
 {
-    public function getProfile(): ?array
+    public function getPersonen($person_id = null): ?array
     {
         $query = $this->db->table('personen');
         $query->select();
         $result = $query->get();
-        return ($result->getResultArray());
+        return $result->getResultArray();
     }
 
 }

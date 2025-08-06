@@ -7,7 +7,7 @@
         Personendaten als Liste
     </div>
     <ul class="list-group list-group-flush">
-        <?php foreach ($test as $item): ?>
+        <?php foreach ($personen as $item): ?>
             <li class="list-group-item"><?= $item['name'] ?></li>
         <?php endforeach; ?>
     </ul>
