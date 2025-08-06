@@ -57,6 +57,7 @@
         <?php } ?>
     </div>
 </nav>
+
 <script>
     $(function () {
         const $toggle = $('#themeToggle'),

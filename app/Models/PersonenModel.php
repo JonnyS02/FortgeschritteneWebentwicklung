@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class PersonenModel extends Model
 {
-    public function getPersonen($person_id = null): ?array
+    public function getPersonen(): ?array
     {
         $query = $this->db->table('personen');
         $query->select();
