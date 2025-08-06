@@ -15,4 +15,10 @@ class Home extends BaseController
         $data['personen'] = $this->PersonenModel->getPersonen();
         return $this->viewMod('home',$data);
     }
+
+    public function getPersonenAJAX(): string
+    {
+        $personen = $this->PersonenModel->getPersonenAJAX();
+        return $personen;
+    }
 }

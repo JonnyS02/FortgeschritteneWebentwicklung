@@ -10,3 +10,5 @@ $routes->get('/login', 'Login::index');
 
 $routes->match(['get', 'post'], 'home', 'Home::index');
 $routes->match(['get', 'post'], 'map', 'Map::index');
+
+$routes->match(['get', 'post'], 'getPersonenAJAX', 'Home::getPersonenAJAX');
