@@ -2,7 +2,7 @@
     Willkommen auf der Startseite!
 </h2>
 
-<div class="card" style="width: 18rem;">
+<div class="card">
     <div class="card-header">
         Personendaten als Liste
     </div>
