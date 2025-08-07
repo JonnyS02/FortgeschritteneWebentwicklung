@@ -9,6 +9,34 @@
             </div>
             <div class="col">
                 Das Wetter in Trier ist derzeit <b><?= $wetter['weather'][0]['description'] ?></b> mit einer Temperatur von <?= $wetter['main']['temp'] ?>°C.
+                <table class="table table-striped border mt-3">
+                    <tbody>
+                    <tr>
+                        <td>Temperatur</td>
+                        <td><?= $wetter['main']['temp'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Gefühlte Temperatur</td>
+                        <td><?= $wetter['main']['feels_like'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Tiefstwerte</td>
+                        <td><?= $wetter['main']['temp_min'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Höchstwerte</td>
+                        <td><?= $wetter['main']['temp_max'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Wind</td>
+                        <td><?= $wetter['wind']['speed'] ?></td>
+                    </tr>
+                    <tr>
+                        <td>Höchstwerte</td>
+                        <td><?= $wetter['main']['temp_max'] ?></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
