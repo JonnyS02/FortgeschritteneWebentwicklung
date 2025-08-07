@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-sm bg-body-tertiary mb-4 shadow">
     <div class="container-fluid align-content-center">
-        <a class="navbar-brand mb-0 h1 text-primary" href="<?= base_url(index_page()) . "/startseite" ?>">F-WE</a>
+        <a class="navbar-brand" href="<?= base_url(index_page()) . "/startseite" ?>">
+            <img src="https://dozent.wi1we.uni-trier.de/public/assets/images/FWE-Logo.svg" width="250px" alt="Logo" class="mt-2 mb-2">
+        </a>
         <?php if ($view != 'anmeldung') { ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
