@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <div class="w-100"><img src="https://openweathermap.org/img/wn/<?= $wetter['weather'][0]['icon'] ?>@2x.png" alt="Wetter-Icon" class="w-50 w-md-75"></div>
+                        <div class="w-100"><img src="https://openweathermap.org/img/wn/<?= $wetter['weather'][0]['icon'] ?>@4x.png" alt="Wetter-Icon" class="w-50 w-md-75"></div>
                             Das Wetter in Trier ist derzeit <h6 class="display-6"><?= $wetter['weather'][0]['description'] ?></h6> mit einer Temperatur von <h6 class="display-6"><?= $wetter['main']['temp'] ?>°C.</h6>
                     </div>
                     <div class="col">

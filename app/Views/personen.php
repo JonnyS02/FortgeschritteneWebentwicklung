@@ -13,13 +13,11 @@
                data-show-pagination-switch="true"
                data-show-toggle="true"
                data-show-fullscreen="true"
-               data-buttons="buttons"
                data-pagination="true"
                data-page-size="5"
                data-url="<?= base_url(index_page()) . '/getPersonenAJAX' ?>"
                data-show-export="true"
-               data-export-types='["csv","excel","pdf"]'
-               data-side-pagination="client">
+               data-export-types='["csv","excel","pdf"]'>
             <thead>
             <tr>
                 <th data-field="id" data-sortable="true">#</th>
