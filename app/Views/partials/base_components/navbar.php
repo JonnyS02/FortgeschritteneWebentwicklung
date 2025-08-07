@@ -19,10 +19,6 @@
                         <a class="<?= $view == 'personen' ? 'active' : '' ?> nav-link" aria-current="page"
                            href="<?= base_url(index_page()) . "/personen" ?>">Personen</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="<?= $view == 'karte' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/karte" ?>">Karte</a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown-center">

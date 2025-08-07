@@ -24,12 +24,7 @@ class Home extends BaseController
     public function getPersonenAJAX(): string
     {
         $personen = $this->PersonenModel->getPersonen();
-        return json_encode($personen) ;
-    }
-
-    public function karte(): string
-    {
-        return $this->viewMod('karte');
+        return json_encode($personen);
     }
 
     public function startseite(): string
