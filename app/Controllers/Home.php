@@ -33,7 +33,7 @@ class Home extends BaseController
 
     function umsatz(): string
     {
-        $umsatz = $this->hauptModel->getUmsatz();
+        $umsatz = $this->hauptModel->getUmsatzListe();
         $data['umsatz'] = json_encode(array_column($umsatz, 'umsatz'));
         $monate = [];
         foreach ($umsatz as $row) {
@@ -41,6 +41,11 @@ class Home extends BaseController
         }
         $monate = array_reverse($monate);
         $data['monat'] = json_encode($monate);
+
+        $vergleich = $this->hauptModel->getUmsatzVergleich();
+        $data['thisYear'] = $vergleich['thisYear'];
+        $data['lastYear'] = $vergleich['lastYear'];
+
         return $this->viewMod('umsatz',$data);
     }
 

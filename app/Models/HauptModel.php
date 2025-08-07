@@ -16,14 +16,34 @@ class HauptModel extends Model
     }
 
 
-    public function getUmsatz(): ?array
+    public function getUmsatzListe(): ?array
     {
         $query = $this->db->table('umsaetze');
         $query->select();
         $query->limit(12);
-        $query->orderBy('id','DESC');
+        $query->orderBy('id', 'DESC');
         $result = $query->get();
         return $result->getResultArray();
+    }
+
+    public function getUmsatzVergleich(): array
+    {
+        $monat = date('n');
+        $jahr = date('Y');
+        $query = $this->db->table('umsaetze');
+        $query->whereIn('jahr', [$jahr, $jahr - 1]);
+        $query->where('monat', $monat);
+        $result = $query->get()->getResultArray();
+
+        $vergleich = ['thisYear' => 0, 'lastYear' => 0];
+        foreach ($result as $row) {
+            if ($row['jahr'] == $jahr) {
+                $vergleich['thisYear'] = $row['umsatz'];
+            } else {
+                $vergleich['lastYear'] = $row['umsatz'];
+            }
+        }
+        return $vergleich;
     }
 
     public function crudPersonen(): ?array

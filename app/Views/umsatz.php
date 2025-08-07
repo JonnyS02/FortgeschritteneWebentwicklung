@@ -9,7 +9,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 mt-4">
+    <div class="col-md-6 mt-md-0 mt-4">
         <div class="card shadow h-100">
             <div class="card-header">
                 <h1 class="display-6">Vergleich in Chart.js</h1>
