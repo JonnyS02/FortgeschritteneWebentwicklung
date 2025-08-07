@@ -17,11 +17,12 @@ class Api extends ResourceController
     {
         $request = service('request');
         $authHeader = $request->getHeaderLine('Authorization');
+        //wischen authorisiert und gültig unterscheiden bearer splitten
         if($authHeader !== 'Bearer Team#01') {
             return $this->failUnauthorized('Unauthorized access');
         }
         return $this->respond(
-            $this->hauptModel->crudePersonen(),
+            $this->hauptModel->crudPersonen(),
             200,
             'Personen CRUD operations successful'
         );

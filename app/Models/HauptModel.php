@@ -21,28 +21,30 @@ class HauptModel extends Model
         //concat, limit 12 , alles in der querry
         $query = $this->db->table('umsaetze');
         $query->select();
+        $query->limit(12);
         $result = $query->get();
         return $result->getResultArray();
     }
 
-    public function crudePersonen(): ?array
+    public function crudPersonen(): ?array
     {
-        if ($_POST['todo'] == 'create') {
-            unset($_POST['todo']);
+        $todo = $_POST['todo'];
+        unset($_POST['todo']);
+
+        if ($todo == 'create') {
             unset($_POST['id']);
             $this->db->table('personen')->insert($_POST);
             return ['status' => 'success', 'message' => 'Person created successfully'];
 
-        } elseif ($_POST['todo'] == 'update') {
-            unset($_POST['todo']);
+        } elseif ($todo == 'update') {
             $this->db->table('personen')->where('id', $_POST['id'])->update($_POST);
             return ['status' => 'success', 'message' => 'Person updated successfully'];
 
-        } elseif ($_POST['todo'] == 'delete') {
+        } elseif ($todo == 'delete') {
             $this->db->table('personen')->where('id', $_POST['id'])->delete();
             return ['status' => 'success', 'message' => 'Person deleted successfully'];
 
-        } elseif ($_POST['todo'] == 'read') {
+        } elseif ($todo == 'read') {
             $query = $this->db->table('personen');
             $query->select();
             if (isset($_POST['id'])) {
