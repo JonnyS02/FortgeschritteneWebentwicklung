@@ -35,14 +35,9 @@ class Api extends ResourceController
         $client  = new Client(env('AI_API_KEY'));
         $chat    = $client->createChat('gemini-2.5-flash');
 
-        // Verlauf aus dem Frontend übernehmen
         $history = json_decode($_POST['history'] ?? '[]', true);
 
         foreach ($history as $msg) {
-            if (!isset($msg['role'], $msg['content'])) {
-                continue;          // defekte Einträge überspringen
-            }
-            // Nachrichten ins Chat-Objekt einpflegen
             if ($msg['role'] === 'user') {
                 $chat->addMessage($msg['content'],Role::User);
             } else {
@@ -50,7 +45,6 @@ class Api extends ResourceController
             }
         }
 
-        // aktuelle Frage
         $question = $_POST['question'] ?? '';
         $answer   = $chat->sendMessage($question)->getText();
 

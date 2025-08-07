@@ -8,10 +8,8 @@
                 </button>
             </div>
 
-            <!-- Nachrichten -->
             <div id="chatBody" class="card-body overflow-auto" style="height:60vh;background:#f8f9fa;"></div>
 
-            <!-- Eingabe -->
             <div class="card-footer bg-light border-top">
                 <form id="chatForm" class="d-flex gap-2">
                     <input id="questionInput"
@@ -76,7 +74,7 @@
             wrapper.innerHTML = `
             <div class="p-2 rounded ${role === 'user'
                 ? 'bg-primary text-white ms-auto'
-                : 'bg-secondary-subtle me-auto'}">${escapeHtml(content)}</div>`;
+                : 'bg-secondary-subtle me-auto'}">${content}</div>`;
             chatBody.appendChild(wrapper);
             scrollDown();
         }
@@ -87,11 +85,6 @@
 
         function saveHistory() {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
-        }
-
-        function escapeHtml(text) {
-            return text.replace(/[&<>"']/g,
-                m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#039;'}[m]));
         }
 
         // --- Kommunikation ------------------------------------------------------
