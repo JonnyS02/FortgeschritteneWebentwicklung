@@ -55,14 +55,25 @@
         }
 
         function renderMessage(role, content) {
-            const html = `<div class="d-flex my-2">
-                            <div class="p-2 rounded ${role === 'user' ? 'bg-primary text-white ms-auto' : 'bg-secondary-subtle me-auto'}">
-                                ${content}
-                            </div>
-                        </div>`;
+            const isUser = role === 'user';
+            const icon   = isUser ? 'fa-user' : 'fa-robot';
+            const align  = isUser ? 'justify-content-end' : 'justify-content-start';
+            const tone   = isUser ? 'bg-primary text-white' : 'bg-info-subtle text-dark';
+            const iconColor = isUser ? 'text-primary' : 'text-secondary';
+
+            const html = `
+      <div class="d-flex my-2 ${align}">
+        ${isUser ? '' : `<div class="d-flex align-items-start me-2"><i class="fas ${icon} ${iconColor} fa-lg"></i></div>`}
+        <div class="p-2 px-3 rounded shadow-sm ${tone}" style="max-width: 75%; word-break: break-word;">
+          ${content}
+        </div>
+        ${isUser ? `<div class="d-flex align-items-start ms-2"><i class="fas ${icon} ${iconColor} fa-lg"></i></div>` : ''}
+      </div>`;
+
             $chatBody.append(html);
             scrollDown();
         }
+
 
         function scrollDown() {
             $chatBody.scrollTop($chatBody.prop('scrollHeight'));
