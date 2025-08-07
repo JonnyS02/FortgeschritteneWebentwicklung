@@ -2,13 +2,13 @@
 
 namespace App\Controllers;
 
-use App\Models\PersonenModel;
+use App\Models\HauptModel;
 
 class Home extends BaseController
 {
     public function __construct()
     {
-        $this->PersonenModel = new PersonenModel();
+        $this->hauptModel = new HauptModel();
     }
 
     public function anmeldung(): string
@@ -23,13 +23,13 @@ class Home extends BaseController
 
     public function getPersonenAJAX(): string
     {
-        $personen = $this->PersonenModel->getPersonen();
+        $personen = $this->hauptModel->getPersonen();
         return json_encode($personen);
     }
 
     public function startseite(): string
     {
-        $umsaetze = $this->PersonenModel->getUmsaetze();
+        $umsaetze = $this->hauptModel->getUmsaetze();
         $data['umsaetze'] = json_encode(array_column($umsaetze, 'umsatz'));
         $data['labels'] = json_encode(
             array_map(

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PersonenModel extends Model
+class HauptModel extends Model
 {
 
     public function getPersonen(): ?array
