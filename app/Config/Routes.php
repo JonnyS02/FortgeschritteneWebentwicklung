@@ -12,7 +12,7 @@ $routes->get('personen', 'Home::personen');
 $routes->get('getPersonenAJAX', 'Home::getPersonenAJAX');
 $routes->get('getPersonenApi', 'Api::getPersonenApi');
 $routes->post('crudePersonApi', 'Api::crudePersonApi');
-$routes->get('getPersonenPDF', 'Home::getPersonenPDF');
+$routes->post('getPersonenPDF', 'Home::getPersonenPDF');
 
 $routes->get('umsatz', 'Home::umsatz');
 

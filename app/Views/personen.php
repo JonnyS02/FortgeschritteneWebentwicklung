@@ -32,4 +32,33 @@
         </table>
     </div>
 </div>
-<a href="<?=base_url(index_page())."/getPersonenPDF"?>" class="btn btn-primary mt-3" id="pdfButton">Liste als PDF (aber in schön)</a>
+<a href="#" class="btn btn-primary mt-3" id="pdfButton">
+    Liste als PDF (aber in schön)
+</a>
+
+<script>
+    $('#pdfButton').on('click', function (e) {
+        e.preventDefault();
+
+        var visibleRows = $('#mainTable').bootstrapTable('getData', { useCurrentPage: true });
+
+        var ids = visibleRows.map(function(row) {
+            return row.id;
+        });
+
+        $.ajax({
+            url: '<?= base_url(index_page()) . "/getPersonenPDF" ?>',
+            type: 'POST',
+            data: { ids: ids },
+            xhrFields: { responseType: 'blob' },
+            success: function(data) {
+                var blob = new Blob([data], { type: 'application/pdf' });
+                var url = URL.createObjectURL(blob);
+                window.location.href = url;
+            },
+            error: function(xhr) {
+                alert("Fehler beim Generieren des PDFs: " + xhr.status);
+            }
+        });
+    });
+</script>

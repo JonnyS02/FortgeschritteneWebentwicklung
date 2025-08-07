@@ -3,9 +3,11 @@
 namespace App\Controllers;
 
 use App\Models\HauptModel;
+use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
 use Mpdf\HTMLParserMode;
 use Mpdf\Mpdf;
+use Mpdf\Output\Destination;
 
 class Home extends BaseController
 {
@@ -33,60 +35,75 @@ class Home extends BaseController
         return json_encode($personen);
     }
 
-    public function getPersonenPDF()
+    public function getPersonenPDF(): ResponseInterface
     {
-        $page   = max(1, (int) ($this->request->getGet('page')  ?? 1));
-        $limit  = max(1, (int) ($this->request->getGet('limit') ?? 25));
-        $sort   = $this->request->getGet('sort')  ?: 'id';
-        $order  = strtoupper($this->request->getGet('order') ?: 'ASC');
-        $search = trim((string) ($this->request->getGet('search') ?? ''));
+        $ids = $this->request->getPost('ids');
+        $personen = $this->hauptModel->getPersonen();
 
-        $params = [
-            'page'   => $page,
-            'limit'  => $limit,
-            'sort'   => $sort,
-            'order'  => $order,
-            'search' => $search
-        ];
-        $personen = $this->hauptModel->getPersonen($params);
+        $personen = array_filter($personen, function ($p) use ($ids) {
+            return in_array($p['id'], $ids);
+        });
+        $personen = array_values($personen);
 
-        ini_set('pcre.backtrack_limit', '5000000');
-        ini_set('pcre.recursion_limit', '500000');
 
         $mpdf = new Mpdf([
-            'format'       => 'A4',
-            'tempDir'      => WRITEPATH . 'mpdf',
-            'margin_top'   => 32,
-            'margin_right' => 15,
-            'margin_bottom'=> 20,
-            'margin_left'  => 15,
+            'format' => 'A4',
+            'tempDir' => WRITEPATH . 'mpdf',
         ]);
-        $mpdf->packTableData = true;
-        $mpdf->simpleTables  = true;
 
-        $mpdf->SetHTMLHeader(
-            '<div style="font-family:sans-serif;font-size:12px;color:#555;border-bottom:1px solid #ddd;padding-bottom:6px;">
-            <strong>Personen – aktuelle Ansicht</strong>
-            <span style="float:right;">{DATE d.m.Y H:i}</span>
-         </div>'
-        );
-        $mpdf->SetHTMLFooter(
-            '<div style="font-family:sans-serif;font-size:11px;color:#777;border-top:1px solid #eee;padding-top:6px;text-align:center;">
-            Seite {PAGENO} / {nbpg}
-         </div>'
-        );
-
-        // CSS
-        $css = 'body{font-family:sans-serif}
-        h1{font-size:18px;margin:0 0 10px}
-        table{width:100%;border-collapse:collapse}
-        thead th{background:#f2f4f8;color:#222;font-weight:600;font-size:12px;border-bottom:1px solid #dfe3e8;padding:8px 6px;text-align:left}
-        tbody td{font-size:11.5px;padding:7px 6px;border-bottom:1px solid #eee}
-        tbody tr:nth-child(even) td{background:#fafbfc}';
+        $css = '
+    body { 
+        font-family: Arial, sans-serif; 
+        color: #333; 
+    }
+    h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #222;
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-top: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    thead th {
+        background: linear-gradient(90deg, #4A90E2, #357ABD);
+        color: #fff;
+        font-weight: 600;
+        font-size: 12px;
+        padding: 10px 8px;
+        text-align: left;
+        border-bottom: 2px solid #2f5f91;
+    }
+    tbody td {
+        font-size: 11.5px;
+        padding: 8px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+    tbody tr:nth-child(even) td {
+        background-color: #f8faff;
+    }
+    tbody tr:last-child td {
+        border-bottom: none;
+    }
+    tbody tr td:first-child {
+        font-weight: bold;
+        color: #555;
+    }
+    .small-text {
+        font-size: 10px;
+        color: #777;
+        text-align: right;
+        margin-top: 4px;
+    }
+';
         $mpdf->WriteHTML($css, HTMLParserMode::HEADER_CSS);
 
-        $mpdf->WriteHTML('<h1>Personen</h1>', HTMLParserMode::HTML_BODY);
-        $mpdf->WriteHTML('
+        $html = '
+        <h1>Eine wirklich sehr schöne Personenliste :D</h1>
         <table>
             <thead>
                 <tr>
@@ -99,37 +116,28 @@ class Home extends BaseController
                     <th>Username</th>
                 </tr>
             </thead>
-            <tbody>', HTMLParserMode::HTML_BODY);
+            <tbody>
+    ';
 
-        $batchSize = 200;
-        $buffer    = '';
-        $count     = 0;
-
-        foreach ($personen as $row) {
-            $buffer .= '<tr>'
-                . '<td>'.htmlspecialchars((string)($row['id'] ?? '')).'</td>'
-                . '<td>'.htmlspecialchars((string)($row['vorname'] ?? '')).'</td>'
-                . '<td>'.htmlspecialchars((string)($row['name'] ?? '')).'</td>'
-                . '<td>'.htmlspecialchars((string)($row['strasse'] ?? '')).'</td>'
-                . '<td>'.htmlspecialchars((string)($row['plz'] ?? '')).'</td>'
-                . '<td>'.htmlspecialchars((string)($row['ort'] ?? '')).'</td>'
-                . '<td>'.htmlspecialchars((string)($row['username'] ?? '')).'</td>'
+        foreach ($personen as $p) {
+            $html .= '<tr>'
+                . '<td>' . $p['id'] . '</td>'
+                . '<td>' . $p['vorname'] . '</td>'
+                . '<td>' . $p['name'] . '</td>'
+                . '<td>' . $p['strasse'] . '</td>'
+                . '<td>' . $p['plz'] . '</td>'
+                . '<td>' . $p['ort'] . '</td>'
+                . '<td>' . $p['username'] . '</td>'
                 . '</tr>';
-
-            if ((++$count % $batchSize) === 0) {
-                $mpdf->WriteHTML($buffer, HTMLParserMode::HTML_BODY);
-                $buffer = '';
-            }
-        }
-        if ($buffer !== '') {
-            $mpdf->WriteHTML($buffer, HTMLParserMode::HTML_BODY);
         }
 
-        $mpdf->WriteHTML('</tbody></table>', HTMLParserMode::HTML_BODY);
+        $html .= '</tbody></table>';
+        $mpdf->WriteHTML($html, HTMLParserMode::HTML_BODY);
 
+        // PDF ausgeben
         return $this->response
             ->setHeader('Content-Type', 'application/pdf')
-            ->setBody($mpdf->Output('personen-ansicht.pdf', \Mpdf\Output\Destination::STRING_RETURN));
+            ->setBody($mpdf->Output('personen-tabelle.pdf', Destination::STRING_RETURN));
     }
 
     function umsatz(): string
