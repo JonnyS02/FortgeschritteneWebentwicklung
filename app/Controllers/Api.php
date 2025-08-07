@@ -13,9 +13,17 @@ class Api extends ResourceController
         $this->hauptModel = new HauptModel();
     }
 
-    public function getPersonenApi(): ResponseInterface
+    public function getPersonenApi(): ?ResponseInterface
     {
-        $personen = $this->hauptModel->getPersonen();
-        return $this->respond($personen);
+        $request = service('request');
+        $authHeader = $request->getHeaderLine('Authorization');
+        if(!$authHeader || $authHeader !== 'Bearer Team#01') {
+            return $this->failUnauthorized('Unauthorized access');
+        }
+        return $this->respond(
+            $this->hauptModel->getPersonen(),
+            200,
+            'Personen retrieved successfully'
+        );
     }
 }
