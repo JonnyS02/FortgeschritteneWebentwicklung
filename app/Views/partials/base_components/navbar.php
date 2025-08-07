@@ -28,7 +28,7 @@
                            href="<?= base_url(index_page()) . "/KIChat" ?>">KI-Chat</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav me-2">
+                <ul class="navbar-nav me-1">
                     <li class="nav-item">
                         <div class="form-check form-switch d-flex align-items-center">
                             <input class="form-check-input me-2" type="checkbox" id="themeToggle">
