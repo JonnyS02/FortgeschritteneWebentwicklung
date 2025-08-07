@@ -66,7 +66,7 @@
         html: '<i class="fa-solid fa-building-columns fa-2x"></i>',
         className: '',
         iconSize: [32, 32],
-        iconAnchor: [16, 32]
+        iconAnchor: [13, 16]
     });
 
     L.marker([49.747558, 6.675591],{
@@ -74,7 +74,6 @@
     })
         .addTo(map)
         .bindPopup('<i class="fa-solid fa-building-columns"></i> Universität Trier')
-
         .openPopup();
 
     L.circle([49.747558, 6.675591], {
