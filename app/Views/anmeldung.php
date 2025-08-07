@@ -6,15 +6,15 @@
         <form action="<?= base_url(index_page()) . '/startseite' ?>" method="post">
             <div class="form-group mb-3">
                 <label for="email" class="col-form-label">E-Mail:</label>
-                <input type="email" name="email" id="email" value="" class="form-control " placeholder="Benutzername"
-                       required="" autofocus="">
+                <input type="email" name="email" id="email" value="test.testheimer@testhausen.de" class="form-control " placeholder="Benutzername"
+                       required autofocus>
                 <div class="invalid-feedback mx-2">
                 </div>
             </div>
             <div class="form-group mb-3">
                 <label for="password" class="col-form-label">Passwort:</label>
-                <input type="password" name="password" id="password" value="" class="form-control "
-                       placeholder="Passwort" required="">
+                <input type="password" name="password" id="password" value="Passwort123" class="form-control "
+                       placeholder="Passwort" required>
                 <div class="invalid-feedback mx-2">
                 </div>
             </div>
