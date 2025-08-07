@@ -47,6 +47,9 @@ class Api extends ResourceController
 
         $answer   = $chat->sendMessage($_POST['question'])->getText();
 
-        return $this->respond($answer, 200, 'KI response successful');
+        return $this->response
+            ->setStatusCode(200)
+            ->setContentType('text/plain', 'UTF-8')
+            ->setBody($answer);
     }
 }
