@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-body-tertiary mb-4 shadow">
     <div class="container-fluid align-content-center">
         <a class="navbar-brand" href="<?= base_url(index_page()) . "/startseite" ?>">
-            <img src="https://dozent.wi1we.uni-trier.de/public/assets/images/FWE-Logo.svg" width="200px" alt="Logo" class="mt-2 mb-2">
+            <img src="https://dozent.wi1we.uni-trier.de/public/assets/images/FWE-Logo.svg" width="200px" alt="Logo" class="mt-2 mb-2 invert-dark">
         </a>
         <?php if ($view != 'anmeldung') { ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -51,6 +51,12 @@
         <?php } ?>
     </div>
 </nav>
+
+<style>
+    [data-bs-theme="dark"] .invert-dark {
+        filter: invert(1) hue-rotate(180deg);
+    }
+</style>
 
 <script>
     $(function () {
