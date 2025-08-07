@@ -35,7 +35,7 @@ class Api extends ResourceController
         $client  = new Client(env('AI_API_KEY'));
         $chat    = $client->createChat('gemini-2.5-flash');
 
-        $history = json_decode($_POST['history'] ?? '[]', true);
+        $history = json_decode($_POST['history'], true);
 
         foreach ($history as $msg) {
             if ($msg['role'] === 'user') {
@@ -45,8 +45,7 @@ class Api extends ResourceController
             }
         }
 
-        $question = $_POST['question'] ?? '';
-        $answer   = $chat->sendMessage($question)->getText();
+        $answer   = $chat->sendMessage($_POST['question'])->getText();
 
         return $this->respond($answer, 200, 'KI response successful');
     }

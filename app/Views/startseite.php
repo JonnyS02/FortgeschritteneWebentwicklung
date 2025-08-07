@@ -56,9 +56,32 @@
     </div>
 </div>
 <script>
-    const map = L.map('map').setView([49.747558, 6.675591], 13);
+    const map = L.map('map').setView([49.747558, 6.675591], 15);
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19
     }).addTo(map);
-    L.marker([49.747558, 6.675591]).addTo(map).bindPopup('<i class="fa-solid fa-building-columns"></i> Universität Trier').openPopup();
+
+    const faIcon = L.divIcon({
+        html: '<i class="fa-solid fa-building-columns fa-2x"></i>',
+        className: '',
+        iconSize: [32, 32],
+        iconAnchor: [16, 32]
+    });
+
+    L.marker([49.747558, 6.675591],{
+        icon: faIcon,
+    })
+        .addTo(map)
+        .bindPopup('<i class="fa-solid fa-building-columns"></i> Universität Trier')
+
+        .openPopup();
+
+    L.circle([49.747558, 6.675591], {
+        color: '#47cef0',
+        fillColor: '#blue',
+        fillOpacity: 0.2,
+        radius: 150
+    }).addTo(map);
+
 </script>
