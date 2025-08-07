@@ -29,7 +29,7 @@
                 {
                     label: "Umsätze(in Geld)",
                     data: <?= $umsaetze ?>,
-                    backgroundColor: 'rgb(72,110,242)' // Beispiel-Farbe
+                    backgroundColor: 'rgb(72,208,242)' // Beispiel-Farbe
                 }
             ]
         },
