@@ -34,3 +34,4 @@
         </table>
     </div>
 </div>
+<a href="<?=base_url(index_page())."/getPersonenPDF"?>" class="btn btn-primary mt-3" id="pdfButton">Gesamte liste als PDF</a>
