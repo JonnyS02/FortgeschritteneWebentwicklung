@@ -15,6 +15,8 @@ class Api extends ResourceController
         $this->hauptModel = new HauptModel();
     }
 
+    // diese funktion liefert eine liste aller Personen,
+    // wenn die id nicht gesetzt ist und todo = "read"
     public function crudePersonApi(): ResponseInterface
     {
         $request = service('request');
