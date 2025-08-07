@@ -41,7 +41,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <table class="table table-striped border mt-3">
+                        <table class="table table-striped border">
                             <tbody>
                             <tr>
                                 <td>Luftfeuchtigkeit</td>
