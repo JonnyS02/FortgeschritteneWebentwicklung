@@ -4,7 +4,7 @@
             <div class="card-header">
                 <h1 class="display-6"><i class="fa-solid fa-money-bill-trend-up text-success"></i> Umsätze in Chart.js</h1>
             </div>
-            <div class="card-body">
+            <div class="card-body d-flex justify-content-center align-items-center">
                 <canvas id="bar-chart"></canvas>
             </div>
         </div>
@@ -14,13 +14,16 @@
             <div class="card-header">
                 <h1 class="display-6"><i class="fa-solid fa-code-compare text-primary"></i> Vergleich in Chart.js</h1>
             </div>
-            <div class="card-body">
-                <canvas id="gauge-chart"></canvas>
+            <div class="card-body d-flex justify-content-center align-items-center">
+
+            <canvas id="gauge-chart"></canvas>
             </div>
         </div>
     </div>
 </div>
 <script>
+    const legendFontSize = 16; // Einheit: px
+
     new Chart($('#bar-chart'), {
         type: 'bar',
         data: {
@@ -32,7 +35,16 @@
             }]
         },
         options: {
-            responsive: true
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: legendFontSize
+                        }
+                    }
+                }
+            }
         }
     });
 
@@ -55,6 +67,15 @@
             responsive: true,
             rotation: -90,
             circumference: 180,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: legendFontSize
+                        }
+                    }
+                }
+            }
         }
     });
 </script>
