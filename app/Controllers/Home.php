@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\HauptModel;
+use Config\Services;
+use JetBrains\PhpStorm\NoReturn;
 
 class Home extends BaseController
 {
@@ -38,5 +40,13 @@ class Home extends BaseController
             )
         );
         return $this->viewMod('startseite',$data);
+    }
+
+    function wetter()
+    {
+        $client = Services::curlrequest();
+        $response = $client->get('https://api.openweathermap.org/data/2.5/weather?q=Trier&appid=f565171f49fd6353914ea7be853091fa&units=metric&lang=de');
+        $data = json_decode($response->getBody(), true);
+        return $this->viewMod('wetter',$data);
     }
 }

@@ -17,3 +17,5 @@ $routes->get('getPersonenApi', 'Api::getPersonenApi');
 
 $routes->post('crudePersonApi', 'Api::crudePersonApi');
 
+$routes->match(['get', 'post'], 'wetter', 'Home::wetter');
+
