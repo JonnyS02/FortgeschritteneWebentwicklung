@@ -10,7 +10,6 @@ $routes->get('startseite', 'Home::startseite');
 
 $routes->get('personen', 'Home::personen');
 $routes->get('getPersonenAJAX', 'Home::getPersonenAJAX');
-$routes->get('getPersonenApi', 'Api::getPersonenApi');
 $routes->post('crudePersonApi', 'Api::crudePersonApi');
 $routes->post('getPersonenPDF', 'Home::getPersonenPDF');
 

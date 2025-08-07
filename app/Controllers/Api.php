@@ -23,7 +23,7 @@ class Api extends ResourceController
             return $this->failUnauthorized('Unauthorized access');
         }
         return $this->respond(
-            json_encode($this->hauptModel->crudPersonen()),
+            $this->hauptModel->crudPersonen(),
             200,
             'Personen CRUD operations performed'
         );
