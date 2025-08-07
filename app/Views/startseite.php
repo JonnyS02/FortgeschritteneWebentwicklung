@@ -5,7 +5,7 @@
                 <h6 class="display-6">AJAX-geladene Personentabelle</h6>
             </div>
             <div class="card-body">
-
+                <canvas id="bar-chart" width="800" height="450"></canvas>
             </div>
         </div>
     </div>
@@ -20,3 +20,30 @@
         </div>
     </div>
 </div>
+<script>
+
+    new Chart(document.getElementById("bar-chart"), {
+        type: 'line',
+        data: {
+            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            datasets: [
+                {
+                    label: "Population (millions)",
+                    data: [2478,5267,734,784,433]
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: false,
+                    text: 'Chart.js Line Chart'
+                }
+            }
+        }
+    });
+</script>
