@@ -1,4 +1,4 @@
-<div class="card shadow mx-auto mt-5 smaller-width">
+<div class="card shadow mx-auto">
     <div class="card-header">
         <h6 class="display-6">AJAX-geladene Personentabelle</h6>
     </div>
