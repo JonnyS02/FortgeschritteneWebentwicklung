@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="card shadow h-100">
             <div class="card-header">
-                <h6 class="display-6">Karte von Trier in Leaflet</h6>
+                <h6 class="display-6"><i class="fa-solid fa-map-location-dot text-success"></i> Karte von Trier in Leaflet</h6>
             </div>
             <div class="card-body">
                 <div id="map"  class="rounded h-100"></div>
@@ -12,7 +12,7 @@
     <div class="col-md-6">
         <div class="card shadow h-100 mt-md-0 mt-4">
             <div class="card-header">
-                <h6 class="display-6">Wetter von OpenWeatherMap</h6>
+                <h6 class="display-6"><i class="fa-solid fa-circle-info text-primary"></i></i> Wetter von OpenWeatherMap</h6>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -21,10 +21,10 @@
                             Das Wetter in Trier ist derzeit <h6 class="display-6"><?= $wetter['weather'][0]['description'] ?></h6> mit einer Temperatur von <h6 class="display-6"><?= $wetter['main']['temp'] ?>°C.</h6>
                     </div>
                     <div class="col">
-                        <table class="table table-striped border mt-3">
+                        <table class="table table-striped border mt-3 rounded-3">
                             <tbody>
-                            <tr>
-                                <td>Temperatur</td>
+                            <tr class="h6">
+                                <td><i class="fa-solid fa-temperature-half text-primary"></i> Temperatur</td>
                                 <td><?= $wetter['main']['temp'] ?> °C</td>
                             </tr>
                             <tr>
@@ -43,8 +43,8 @@
                         </table>
                         <table class="table table-striped border">
                             <tbody>
-                            <tr>
-                                <td>Luftfeuchtigkeit</td>
+                            <tr class="h6">
+                                <td><i class="fa-solid fa-wind text-primary"></i> Luftfeuchtigkeit</td>
                                 <td><?= $wetter['main']['humidity'] ?> %</td>
                             </tr>
                             <tr>

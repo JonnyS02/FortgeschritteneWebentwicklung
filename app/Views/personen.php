@@ -1,6 +1,6 @@
 <div class="card shadow mx-auto">
     <div class="card-header">
-        <h6 class="display-6">AJAX-geladene Personentabelle</h6>
+        <h6 class="display-6"><i class="fa-solid fa-address-book text-primary"></i> AJAX-geladene Personentabelle</h6>
     </div>
     <div class="card-body">
         <table id="mainTable"

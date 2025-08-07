@@ -13,20 +13,29 @@
                 <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
                         <a class="<?= $view == 'startseite' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/startseite" ?>">Startseite</a>
+                           href="<?= base_url(index_page()) . "/startseite" ?>">
+                            <i class="fas fa-home me-1"></i> Startseite
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="<?= $view == 'personen' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/personen" ?>">Personen</a>
+                           href="<?= base_url(index_page()) . "/personen" ?>">
+                            <i class="fas fa-users me-1"></i> Personen
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="<?= $view == 'umsatz' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/umsatz" ?>">Umsätze</a>
+                           href="<?= base_url(index_page()) . "/umsatz" ?>">
+                            <i class="fas fa-chart-line me-1"></i> Umsätze
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="<?= $view == 'KIChat' ? 'active' : '' ?> nav-link" aria-current="page"
-                           href="<?= base_url(index_page()) . "/KIChat" ?>">KI-Chat</a>
+                           href="<?= base_url(index_page()) . "/KIChat" ?>">
+                            <i class="fas fa-robot me-1"></i> KI-Chat
+                        </a>
                     </li>
+
                 </ul>
                 <ul class="navbar-nav me-1">
                     <li class="nav-item">
