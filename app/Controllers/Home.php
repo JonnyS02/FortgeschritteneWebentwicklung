@@ -17,7 +17,7 @@ class Home extends BaseController
         $client = Services::curlrequest();
         $response = $client->get('https://api.openweathermap.org/data/2.5/weather?q=Trier&appid=f565171f49fd6353914ea7be853091fa&units=metric&lang=de');
         $data['wetter'] = json_decode($response->getBody(), true);
-        return $this->viewMod('startseite',$data);
+        return $this->viewMod('startseite', $data);
     }
 
     public function personen(): string
@@ -51,7 +51,7 @@ class Home extends BaseController
         $data['thisYear'] = $vergleich['thisYear'];
         $data['lastYear'] = $vergleich['lastYear'];
 
-        return $this->viewMod('umsatz',$data);
+        return $this->viewMod('umsatz', $data);
     }
 
     function KIChat(): string
