@@ -7,14 +7,13 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('startseite', 'Home::startseite');
 
-$routes->get( 'personen', 'Home::personen');
-$routes->match(['get', 'post'], 'getPersonenAJAX', 'Home::getPersonenAJAX');
-
+$routes->get('personen', 'Home::personen');
+$routes->get('getPersonenAJAX', 'Home::getPersonenAJAX');
 $routes->get('getPersonenApi', 'Api::getPersonenApi');
-
 $routes->post('crudePersonApi', 'Api::crudePersonApi');
+$routes->get('getPersonenPDF', 'Home::getPersonenPDF');
 
-$routes->match(['get', 'post'], 'umsatz', 'Home::umsatz');
+$routes->get('umsatz', 'Home::umsatz');
 
-$routes->match(['get', 'post'], 'KIChat', 'Home::KIChat');
-$routes->post( 'KIApi', 'Api::KIApi');
+$routes->get('KIChat', 'Home::KIChat');
+$routes->post('KIApi', 'Api::KIApi');

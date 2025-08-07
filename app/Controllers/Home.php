@@ -31,6 +31,11 @@ class Home extends BaseController
         return json_encode($personen);
     }
 
+    public function getPersonenPDF()
+    {
+
+    }
+
     function umsatz(): string
     {
         $umsatz = $this->hauptModel->getUmsatzListe();
