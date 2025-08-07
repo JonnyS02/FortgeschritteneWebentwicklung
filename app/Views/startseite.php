@@ -21,15 +21,15 @@
     </div>
 </div>
 <script>
-
     new Chart(document.getElementById("bar-chart"), {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+            labels: <?= $labels ?>,
             datasets: [
                 {
-                    label: "Population (millions)",
-                    data: [2478,5267,734,784,433]
+                    label: "Umsätze(in Geld)",
+                    data: <?= $umsaetze ?>,
+                    backgroundColor: 'rgb(72,110,242)' // Beispiel-Farbe
                 }
             ]
         },

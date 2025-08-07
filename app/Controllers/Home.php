@@ -34,6 +34,14 @@ class Home extends BaseController
 
     public function startseite(): string
     {
-        return $this->viewMod('startseite');
+        $umsaetze = $this->PersonenModel->getUmsaetze();
+        $data['umsaetze'] = json_encode(array_column($umsaetze, 'umsatz'));
+        $data['labels'] = json_encode(
+            array_map(
+                fn($row) => $row['jahr'] . '/' . $row['monat'],
+                $umsaetze
+            )
+        );
+        return $this->viewMod('startseite',$data);
     }
 }
