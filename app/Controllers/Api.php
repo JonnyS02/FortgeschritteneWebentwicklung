@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use AIAccess\Chat\Role;
 use AIAccess\Provider\Gemini\Client;
 use App\Models\HauptModel;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -31,13 +32,28 @@ class Api extends ResourceController
 
     public function KIApi(): ResponseInterface
     {
-        $client = new Client(env('AI_API_KEY'));
-        $chat = $client->createChat('gemini-2.5-flash');
-        $data['question'] = $_POST['question'];
-        return $this->respond(
-            $chat->sendMessage($data['question'])->getText(),
-            200,
-            'KI response successful'
-        );
+        $client  = new Client(env('AI_API_KEY'));
+        $chat    = $client->createChat('gemini-2.5-flash');
+
+        // Verlauf aus dem Frontend übernehmen
+        $history = json_decode($_POST['history'] ?? '[]', true);
+
+        foreach ($history as $msg) {
+            if (!isset($msg['role'], $msg['content'])) {
+                continue;          // defekte Einträge überspringen
+            }
+            // Nachrichten ins Chat-Objekt einpflegen
+            if ($msg['role'] === 'user') {
+                $chat->addMessage($msg['content'],Role::User);
+            } else {
+                $chat->addMessage($msg['content'],Role::Model);
+            }
+        }
+
+        // aktuelle Frage
+        $question = $_POST['question'] ?? '';
+        $answer   = $chat->sendMessage($question)->getText();
+
+        return $this->respond($answer, 200, 'KI response successful');
     }
 }
