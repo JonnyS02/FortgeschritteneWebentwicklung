@@ -16,12 +16,12 @@ class HauptModel extends Model
     }
 
 
-    public function getUmsaetze(): ?array
+    public function getUmsatz(): ?array
     {
-        //concat, limit 12 , alles in der querry
         $query = $this->db->table('umsaetze');
         $query->select();
         $query->limit(12);
+        $query->orderBy('id','DESC');
         $result = $query->get();
         return $result->getResultArray();
     }
