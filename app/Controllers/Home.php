@@ -49,4 +49,9 @@ class Home extends BaseController
         $data['wetter'] = json_decode($response->getBody(), true);
         return $this->viewMod('wetter',$data);
     }
+
+    function KIChat()
+    {
+        return $this->viewMod('KIChat');
+    }
 }

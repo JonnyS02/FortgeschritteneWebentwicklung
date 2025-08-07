@@ -19,3 +19,4 @@ $routes->post('crudePersonApi', 'Api::crudePersonApi');
 
 $routes->match(['get', 'post'], 'wetter', 'Home::wetter');
 
+$routes->match(['get', 'post'], 'KIChat', 'Home::KIChat');
