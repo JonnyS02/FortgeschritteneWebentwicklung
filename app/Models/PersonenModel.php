@@ -18,6 +18,7 @@ class PersonenModel extends Model
 
     public function getUmsaetze(): ?array
     {
+        //concat, limit 12 , alles in der querry
         $query = $this->db->table('umsaetze');
         $query->select();
         $result = $query->get();
