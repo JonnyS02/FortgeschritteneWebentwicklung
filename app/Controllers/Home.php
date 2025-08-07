@@ -54,7 +54,8 @@ class Home extends BaseController
     {
         $client = new Client(env('AI_API_KEY'));
         $chat = $client->createChat('gemini-2.5-flash');
-        $data['question'] = 'Write a short haiku about PHP.';
+
+        $data['question'] = 'Was ist der Sinn des Lebens?';
         $data['response'] = $chat->sendMessage($data['question'])->getText();
         return $this->viewMod('KIChat', $data);
     }
