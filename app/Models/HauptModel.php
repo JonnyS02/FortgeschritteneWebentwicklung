@@ -28,7 +28,7 @@ class HauptModel extends Model
 
     public function getUmsatzVergleich(): array
     {
-        $monat = date('n');
+        $monat = date('n') - 1; // Für den aktuellen Monat (August) liegen noch keine Daten vor
         $jahr = date('Y');
         $query = $this->db->table('umsaetze');
         $query->whereIn('jahr', [$jahr, $jahr - 1]);
