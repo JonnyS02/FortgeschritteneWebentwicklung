@@ -42,7 +42,7 @@ class Home extends BaseController
         return $this->viewMod('startseite',$data);
     }
 
-    function wetter()
+    function wetter(): string
     {
         $client = Services::curlrequest();
         $response = $client->get('https://api.openweathermap.org/data/2.5/weather?q=Trier&appid=f565171f49fd6353914ea7be853091fa&units=metric&lang=de');
@@ -52,11 +52,6 @@ class Home extends BaseController
 
     function KIChat(): string
     {
-        $client = new Client(env('AI_API_KEY'));
-        $chat = $client->createChat('gemini-2.5-flash');
-
-        $data['question'] = 'Was ist der Sinn des Lebens?';
-        $data['response'] = $chat->sendMessage($data['question'])->getText();
-        return $this->viewMod('KIChat', $data);
+        return $this->viewMod('KIChat');
     }
 }
