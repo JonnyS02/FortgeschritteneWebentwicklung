@@ -61,11 +61,19 @@
                 tooltip: {
                     callbacks: {
                         label(ctx) {
-                            const perc = Number(ctx.raw);
-                            const abs = ctx.dataIndex === 0 ? thisYear : Math.max(lastYear - thisYear, 0);
-                            return ` ${perc.toFixed(1)}% (${fmtEUR.format(abs)})`;
+                            const abs = ctx.dataIndex === 0
+                                ? thisYear
+                                : Math.max(lastYear - thisYear, 0);
+                            return ` ${Number(ctx.raw).toFixed(1)}% (${fmtEUR.format(abs)})`;
                         }
                     }
+                },
+                subtitle: {
+                    display: true,
+                    position: 'top',
+                    text: `${ratio.toFixed(1)}% vom selben Monat letztes Jahr erreicht`,
+                    font: { size: 16, weight: 'bold' },
+                    padding: { top: 8,bottom: 8 }
                 }
             }
         }
