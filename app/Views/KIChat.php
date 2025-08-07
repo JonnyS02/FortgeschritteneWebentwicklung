@@ -5,9 +5,7 @@
             <i class="fas fa-trash-alt"></i> Verlauf löschen
         </button>
     </div>
-
-    <div id="chatBody" class="card-body overflow-auto bg-light" style="height:60vh;"></div>
-
+    <div id="chatBody" class="card-body overflow-auto" style="height:60vh;"></div>
     <div class="card-footer border-top">
         <form id="chatForm" class="input-group">
             <input id="questionInput" class="form-control" placeholder="Deine Frage …" autocomplete="off" required>
@@ -58,7 +56,7 @@
             const isUser = role === 'user';
             const icon   = isUser ? 'fa-user' : 'fa-robot';
             const align  = isUser ? 'justify-content-end' : 'justify-content-start';
-            const tone   = isUser ? 'bg-primary text-white' : 'bg-info-subtle text-dark';
+            const tone   = isUser ? 'bg-primary text-white' : 'bg-secondary text-white';
             const iconColor = isUser ? 'text-primary' : 'text-secondary';
 
             const html = `

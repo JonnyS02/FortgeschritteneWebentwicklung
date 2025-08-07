@@ -19,14 +19,13 @@ class Api extends ResourceController
     {
         $request = service('request');
         $authHeader = $request->getHeaderLine('Authorization');
-        //wischen authorisiert und gültig unterscheiden bearer splitten
         if($authHeader !== 'Bearer Team#01') {
             return $this->failUnauthorized('Unauthorized access');
         }
         return $this->respond(
-            $this->hauptModel->crudPersonen(),
+            json_encode($this->hauptModel->crudPersonen()),
             200,
-            'Personen CRUD operations successful'
+            'Personen CRUD operations performed'
         );
     }
 
@@ -49,7 +48,7 @@ class Api extends ResourceController
 
         return $this->response
             ->setStatusCode(200)
-            ->setContentType('text/plain', 'UTF-8')
+            ->setContentType('text/plain')
             ->setBody($answer);
     }
 }
