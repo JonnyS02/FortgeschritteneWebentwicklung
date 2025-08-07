@@ -44,7 +44,7 @@
     new Chart(document.getElementById('gauge-chart'), {
         type: 'doughnut',
         data: {
-            labels: ['Erreicht', 'Fehlend'],
+            labels: ['Erreicht diesen Monat', 'Erreicht vergangenen Monat'],
             datasets: [{
                 label: 'Umsatzverhältnis',
                 data: [ratio, 100 - ratio],
