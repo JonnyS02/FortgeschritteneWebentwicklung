@@ -13,5 +13,5 @@ $routes->match(['get', 'post'], 'startseite', 'Home::startseite');
 $routes->match(['get', 'post'], 'personen', 'Home::personen');
 $routes->match(['get', 'post'], 'getPersonenAJAX', 'Home::getPersonenAJAX');
 
-$routes->match(['get', 'post'], 'karte', 'Home::karte');
+$routes->match(['get', 'post'], 'getPersonenApi', 'Api::getPersonenApi');
 
