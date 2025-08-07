@@ -1,44 +1,38 @@
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card shadow">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0"><i class="bi bi-robot"></i> KI-Chat</h5>
-                <button id="clearChat" class="btn btn-sm btn-outline-danger" type="button">
-                    <i class="bi bi-trash"></i> Verlauf&nbsp;löschen
-                </button>
-            </div>
+<div class="card shadow col-md-8 m-auto">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0"><i class="bi bi-robot"></i> KI-Chat</h5>
+        <button id="clearChat" class="btn btn-sm btn-outline-danger" type="button">
+            <i class="bi bi-trash"></i> Verlauf&nbsp;löschen
+        </button>
+    </div>
 
-            <div id="chatBody" class="card-body overflow-auto" style="height:60vh;background:#f8f9fa;"></div>
+    <div id="chatBody" class="card-body overflow-auto" style="height:60vh;"></div>
 
-            <div class="card-footer bg-light border-top">
-                <form id="chatForm" class="d-flex gap-2">
-                    <input id="questionInput"
-                           class="form-control"
-                           placeholder="Deine Frage …"
-                           autocomplete="off"
-                           required>
-                    <button id="sendBtn" class="btn btn-primary" type="submit">
-                        <i class="bi bi-send"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
+    <div class="card-footer bg-light border-top">
+        <form id="chatForm" class="d-flex gap-2">
+            <input id="questionInput"
+                   class="form-control"
+                   placeholder="Deine Frage …"
+                   autocomplete="off"
+                   required>
+            <button id="sendBtn" class="btn btn-primary" type="submit">
+                <i class="bi bi-send"></i>
+            </button>
+        </form>
     </div>
 </div>
 
 <script>
     (() => {
         const STORAGE_KEY = 'kiChatHistory';
-        const chatBody    = document.getElementById('chatBody');
-        const form        = document.getElementById('chatForm');
-        const input       = document.getElementById('questionInput');
-        const clearBtn    = document.getElementById('clearChat');
+        const chatBody = document.getElementById('chatBody');
+        const form = document.getElementById('chatForm');
+        const input = document.getElementById('questionInput');
+        const clearBtn = document.getElementById('clearChat');
 
-        // Lade evtl. vorhandenen Verlauf
         let history = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
         renderHistory();
 
-        // --- Event-Handler ------------------------------------------------------
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const msg = input.value.trim();
@@ -49,13 +43,11 @@
         });
 
         clearBtn.addEventListener('click', () => {
-            if (!confirm('Möchtest du den kompletten Chatverlauf löschen?')) return;
             history = [];
             saveHistory();
             renderHistory();
         });
 
-        // --- UI-Helfer ----------------------------------------------------------
         function addMessage(role, content) {
             history.push({role, content});
             saveHistory();
@@ -87,14 +79,11 @@
             localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
         }
 
-        // --- Kommunikation ------------------------------------------------------
         async function sendToAI(question) {
-            // Platzhalter anzeigen
             addMessage('assistant',
                 '<div class="spinner-border spinner-border-sm text-secondary" role="status"></div>');
 
             try {
-                // Wir übergeben kompletten Kontext
                 const response = await fetch('<?= base_url(index_page()) ?>/KIApi', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -106,7 +95,6 @@
 
                 const text = await response.text();
 
-                // Lade-Spinner ersetzen
                 history.pop();
                 chatBody.lastChild.remove();
 

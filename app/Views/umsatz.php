@@ -15,15 +15,12 @@
                 <h1 class="display-6"><i class="fa-solid fa-code-compare text-primary"></i> Vergleich in Chart.js</h1>
             </div>
             <div class="card-body d-flex justify-content-center align-items-center">
-
             <canvas id="gauge-chart"></canvas>
             </div>
         </div>
     </div>
 </div>
 <script>
-    const legendFontSize = 16; // Einheit: px
-
     new Chart($('#bar-chart'), {
         type: 'bar',
         data: {
@@ -36,15 +33,6 @@
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: legendFontSize
-                        }
-                    }
-                }
-            }
         }
     });
 
@@ -53,10 +41,12 @@
     const lastYear = <?= $lastYear ?>;
     const ratio = (thisYear / lastYear * 100);
 
+    const fmtEUR = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' });
+
     new Chart($('#gauge-chart'), {
         type: 'doughnut',
         data: {
-            labels: ['Erreicht diesen Monat', 'Erreicht vergangenen Monat'],
+            labels: ['Erreicht diesen Monat', 'Rest bis Referenz'],
             datasets: [{
                 label: 'Umsatzverhältnis',
                 data: [ratio, 100 - ratio],
@@ -68,10 +58,12 @@
             rotation: -90,
             circumference: 180,
             plugins: {
-                legend: {
-                    labels: {
-                        font: {
-                            size: legendFontSize
+                tooltip: {
+                    callbacks: {
+                        label(ctx) {
+                            const perc = Number(ctx.raw);
+                            const abs = ctx.dataIndex === 0 ? thisYear : Math.max(lastYear - thisYear, 0);
+                            return ` ${perc.toFixed(1)}% (${fmtEUR.format(abs)})`;
                         }
                     }
                 }
