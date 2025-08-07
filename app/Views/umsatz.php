@@ -2,7 +2,7 @@
     <div class="col-md-6">
         <div class="card shadow h-100">
             <div class="card-header">
-                <h1 class="display-6">Umsätze in Chart.js</h1>
+                <h1 class="display-6"><i class="fa-solid fa-money-bill-trend-up text-success"></i> Umsätze in Chart.js</h1>
             </div>
             <div class="card-body">
                 <canvas id="bar-chart"></canvas>
@@ -12,7 +12,7 @@
     <div class="col-md-6 mt-md-0 mt-4">
         <div class="card shadow h-100">
             <div class="card-header">
-                <h1 class="display-6">Vergleich in Chart.js</h1>
+                <h1 class="display-6"><i class="fa-solid fa-code-compare text-primary"></i> Vergleich in Chart.js</h1>
             </div>
             <div class="card-body">
                 <canvas id="gauge-chart"></canvas>
@@ -21,7 +21,7 @@
     </div>
 </div>
 <script>
-    new Chart(document.getElementById('bar-chart'), {
+    new Chart($('#bar-chart'), {
         type: 'bar',
         data: {
             labels: <?= $monat ?>,
@@ -41,7 +41,7 @@
     const lastYear = <?= $lastYear ?>;
     const ratio = (thisYear / lastYear * 100);
 
-    new Chart(document.getElementById('gauge-chart'), {
+    new Chart($('#gauge-chart'), {
         type: 'doughnut',
         data: {
             labels: ['Erreicht diesen Monat', 'Erreicht vergangenen Monat'],

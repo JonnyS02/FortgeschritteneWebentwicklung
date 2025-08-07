@@ -5,7 +5,7 @@
                 <h6 class="display-6"><i class="fa-solid fa-map-location-dot text-success"></i> Karte von Trier in Leaflet</h6>
             </div>
             <div class="card-body">
-                <div id="map"  class="rounded h-100"></div>
+                <div id="map" style="min-height:300px;"  class="rounded h-100"></div>
             </div>
         </div>
     </div>
@@ -90,5 +90,4 @@
         fillOpacity: 0.2,
         radius: 150
     }).addTo(map);
-
 </script>
