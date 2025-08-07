@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
+use AIAccess\Provider\Gemini\Client;
 use App\Models\HauptModel;
 use Config\Services;
-use JetBrains\PhpStorm\NoReturn;
 
 class Home extends BaseController
 {
@@ -50,8 +50,12 @@ class Home extends BaseController
         return $this->viewMod('wetter',$data);
     }
 
-    function KIChat()
+    function KIChat(): string
     {
-        return $this->viewMod('KIChat');
+        $client = new Client(env('AI_API_KEY'));
+        $chat = $client->createChat('gemini-2.5-flash');
+        $data['question'] = 'Write a short haiku about PHP.';
+        $data['response'] = $chat->sendMessage($data['question'])->getText();
+        return $this->viewMod('KIChat', $data);
     }
 }
