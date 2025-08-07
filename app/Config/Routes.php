@@ -15,3 +15,5 @@ $routes->match(['get', 'post'], 'getPersonenAJAX', 'Home::getPersonenAJAX');
 
 $routes->get('getPersonenApi', 'Api::getPersonenApi');
 
+$routes->post('crudePersonApi', 'Api::crudePersonApi');
+
