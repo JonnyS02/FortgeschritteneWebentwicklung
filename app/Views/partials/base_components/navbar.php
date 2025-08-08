@@ -35,6 +35,16 @@
                             <i class="fas fa-robot me-1"></i> KI-Chat
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            GitHub
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://github.com/JonnyS02/FortgeschritteneWebentwicklung"><i class="fa-brands fa-php"></i> Dieses Projekt</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="https://github.com/JonnyS02/FWE-react-app"><i class="fa-brands fa-react"></i> React Projekt</a></li>
+                        </ul>
+                    </li>
 
                 </ul>
                 <ul class="navbar-nav me-1">
