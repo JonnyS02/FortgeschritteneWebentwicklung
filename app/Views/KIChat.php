@@ -38,6 +38,7 @@
         $clearBtn.on('click', function () {
             history = [];
             renderHistory();
+            localStorage.removeItem(STORAGE_KEY);
         });
 
         function addMessage(role, content) {
