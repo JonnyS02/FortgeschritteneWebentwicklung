@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-body-tertiary mb-4 shadow">
+<nav class="navbar navbar-expand-md bg-body-tertiary mb-4 shadow">
     <div class="container-fluid align-content-center">
         <a class="navbar-brand" href="<?= base_url(index_page()) . "/startseite" ?>">
             <img src="https://dozent.wi1we.uni-trier.de/public/assets/images/FWE-Logo.svg" width="200px" alt="Logo" class="mt-2 mb-2 invert-dark">
@@ -42,7 +42,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="https://github.com/JonnyS02/FortgeschritteneWebentwicklung"><i class="fa-brands fa-php"></i> Dieses Projekt</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="https://github.com/JonnyS02/FWE-react-app"><i class="fa-brands fa-react"></i> React Projekt</a></li>
+                            <li><a class="dropdown-item" href="https://github.com/JonnyS02/FWE-react-app"><i class="fa-brands fa-react"></i> React-Projekt</a></li>
                         </ul>
                     </li>
 
