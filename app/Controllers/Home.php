@@ -143,7 +143,7 @@ class Home extends BaseController
     function umsatz(): string
     {
         $umsatz = $this->hauptModel->getUmsatzListe();
-        $data['umsatz'] = json_encode(array_column($umsatz, 'umsatz'));
+        $data['umsatz'] = json_encode(array_reverse(array_column($umsatz, 'umsatz')));
         $monate = [];
         foreach ($umsatz as $row) {
             $monate[] = "{$row['jahr']}/{$row['monat']}";
