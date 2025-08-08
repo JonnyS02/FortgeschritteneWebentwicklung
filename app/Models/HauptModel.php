@@ -35,7 +35,6 @@ class HauptModel extends Model
         $query->where('monat', $monat);
         $result = $query->get()->getResultArray();
 
-        $vergleich = ['thisYear' => 0, 'lastYear' => 0];
         foreach ($result as $row) {
             if ($row['jahr'] == $jahr) {
                 $vergleich['thisYear'] = $row['umsatz'];
